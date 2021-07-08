@@ -1,0 +1,27 @@
+{
+   "name": "node-typeorm",
+   "version": "0.0.1",
+   "description": "Nodejs Hellow World with TypeORM.",
+   "devDependencies": {
+      "@types/node": "^8.0.29",
+      "cookie-parser": "^1.4.5",
+      "http-errors": "^1.8.0",
+      "jade": "^1.11.0",
+      "morgan": "^1.10.0",
+      "path": "^0.12.7",
+      "ts-node": "3.3.0",
+      "typescript": "3.3.3333"
+   },
+   "dependencies": {
+      "express": "^4.15.4",
+      "mysql": "^2.14.1",
+      "nodemon": "^2.0.9",
+      "reflect-metadata": "^0.1.10",
+      "typeorm": "0.2.34"
+   },
+   "scripts": {
+      "start": "ts-node src/app.ts",
+      "dev": "nodemon --config nodemon.json src/app.ts",
+      "dev:debug": "nodemon --config nodemon.json --inspect-brk src/app.ts"
+   }
+}
