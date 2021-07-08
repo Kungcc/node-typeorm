@@ -1,12 +1,11 @@
 import "reflect-metadata";
 import {createConnection} from "typeorm";
 import * as express from "express";
-import {Request, Response} from "express";
-import {Routes} from "./routes";
 import * as cookieParser from "cookie-parser";
 import * as logger from "morgan";
 import * as path from "path";
 import * as createError from "http-errors";
+import {router} from "./Router";
 
 const app = express();
 
@@ -26,17 +25,21 @@ const startRouter = express.Router().get('/', function(req, res) {
 
 //建立起第一層的router
 app.use('/', startRouter);
-    // register express routes from defined application routes
-Routes.forEach(route => {
-    (app as any)[route.method](route.route, (req: Request, res: Response, next: Function) => {
-        const result = (new (route.controller as any))[route.action](req, res, next);
-        if (result instanceof Promise) {
-            result.then(result => result !== null && result !== undefined ? res.send(result) : undefined);
-        } else if (result !== null && result !== undefined) {
-            res.json(result);
-        }
-    });
-});
+for (const route of router) {
+    app.use(route.getPrefix(), route.getRouter());
+}
+
+// register express routes from defined application routes
+// Routes.forEach(route => {
+//     (app as any)[route.method](route.route, (req: Request, res: Response, next: Function) => {
+//         const result = (new (route.controller as any))[route.action](req, res, next);
+//         if (result instanceof Promise) {
+//             result.then(result => result !== null && result !== undefined ? res.send(result) : undefined);
+//         } else if (result !== null && result !== undefined) {
+//             res.json(result);
+//         }
+//     });
+// });
 
 app.listen(3000);
 
