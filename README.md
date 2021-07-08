@@ -1,7 +1,14 @@
-# Awesome Project Build with TypeORM
+# Node js TypeORM Demo
 
-Steps to run this project:
+DB 參數請在 ormconfig.json 設定
+nodemon 參數請在 nodemon.json 設定
 
-1. Run `npm i` command
-2. Setup database settings inside `ormconfig.json` file
-3. Run `npm start` command
+如何使用本專案
+cd your_path/your_project
+npm install
+本機測試
+npm run dev
+Debug
+npm run dev:debug
+機器運行
+npm run start
