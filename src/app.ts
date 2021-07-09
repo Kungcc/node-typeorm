@@ -1,13 +1,13 @@
 import "reflect-metadata";
 import {createConnection} from "typeorm";
-import express from "express";
+import express = require('express');
 import {Request, Response} from "express";
-import cookieParser from "cookie-parser";
-import logger from "morgan";
-import path from "path";
-import createError from "http-errors";
+import cookieParser = require('cookie-parser');
+import logger = require('morgan');
+import path = require('path');
+import createError = require('http-errors');
 import {router} from "./Router";
-import httpStatus from "http-Status";
+import httpStatus = require('http-Status');
 
 const app = express();
 
