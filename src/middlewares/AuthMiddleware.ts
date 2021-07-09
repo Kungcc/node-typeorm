@@ -1,9 +1,9 @@
-import {Request, Response, Function} from "express";
+import {Request, Response, NextFunction} from "express";
 import {validationResult} from "express-validator";
-import * as jwt from 'jsonwebtoken';
-import * as httpStatus from "http-Status";
+import jwt from 'jsonwebtoken';
+import httpStatus from "http-Status";
 
-export function AuthMiddleware(req: Request, res: Response, next: Function) {
+export function AuthMiddleware(req: Request, res: Response, next: NextFunction) {
   const token = req.headers.authorization;
   console.log(token);
   if (!token) {
@@ -12,7 +12,7 @@ export function AuthMiddleware(req: Request, res: Response, next: Function) {
   next();
 }
 
-export function showApiError(req: Request, res: Response, next: Function) {
+export function showApiError(req: Request, res: Response, next: NextFunction) {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(httpStatus.BAD_REQUEST).json({ errors: errors.array() });
@@ -21,7 +21,7 @@ export function showApiError(req: Request, res: Response, next: Function) {
     next();
 }
 
-export function JwtTokenMiddleware(req: Request, res: Response, next: Function) {
+export function JwtTokenMiddleware(req: Request, res: Response, next: NextFunction) {
   const token = req.headers.authorization;
   if (token) {
     jwt.verify(token,'Agwenbi',(error,decoded) => {//Agwenbi表示密钥，参考第二步设置的密钥
