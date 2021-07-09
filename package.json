@@ -32,6 +32,6 @@
       "start": "ts-node src/app.ts",
       "dev": "nodemon --config nodemon.json src/app.ts",
       "dev:debug": "nodemon --config nodemon.json --inspect-brk src/app.ts",
-      "build": "tsc src/app.ts --experimentalDecorators --emitDecoratorMetadata"
+      "build": "tsc"
    }
 }

@@ -1,6 +1,6 @@
 
 import { Request,Response } from "express";
-import Route from "./route";
+import Route from "./Route";
 import jwt = require('jsonwebtoken');
 import httpStatus = require("http-Status");
 
