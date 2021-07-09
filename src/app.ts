@@ -7,6 +7,7 @@ import * as logger from "morgan";
 import * as path from "path";
 import * as createError from "http-errors";
 import {router} from "./Router";
+import * as httpStatus from "http-Status";
 
 const app = express();
 
@@ -41,7 +42,7 @@ app.listen(3000);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  next(createError(httpStatus.NOT_FOUND));
 });
 
 // error handler
@@ -51,7 +52,7 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
+  res.status(err.status || httpStatus.INTERNAL_SERVER_ERROR);
   res.render('error');
 });
 
