@@ -1,4 +1,4 @@
-import Route from "./routes/route";
+import Route from "./routes/Route";
 import RoleRoute from "./routes/RoleRoute";
 import AuthRoute from "./routes/AuthRoute";
 import TokenRoute from "./routes/TokenRoute";

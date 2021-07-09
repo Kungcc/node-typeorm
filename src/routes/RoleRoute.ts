@@ -1,5 +1,5 @@
 import RoleController from "../controllers/RoleController"
-import Route from "./route";
+import Route from "./Route";
 
 export default class RoleRoute extends Route {
     private roleController = new RoleController();

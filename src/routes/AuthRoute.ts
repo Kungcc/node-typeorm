@@ -1,6 +1,6 @@
 import AuthController from "../controllers/AuthController"
 import {loginRequest} from "../models/LoginRequest";
-import Route from "./route";
+import Route from "./Route";
 import {JwtTokenMiddleware} from "../middlewares/AuthMiddleware"
 
 export default class AuthRoute extends Route {

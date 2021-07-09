@@ -1,13 +1,13 @@
 import "reflect-metadata";
 import {createConnection} from "typeorm";
-import * as express from "express";
+import express = require('express');
 import {Request, Response} from "express";
-import * as cookieParser from "cookie-parser";
-import * as logger from "morgan";
-import * as path from "path";
-import * as createError from "http-errors";
+import cookieParser = require('cookie-parser');
+import logger = require('morgan');
+import path = require('path');
+import createError = require('http-errors');
 import {router} from "./Router";
-import * as httpStatus from "http-Status";
+import httpStatus = require('http-Status');
 
 const app = express();
 
@@ -43,17 +43,6 @@ app.listen(3000);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(httpStatus.NOT_FOUND));
-});
-
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || httpStatus.INTERNAL_SERVER_ERROR);
-  res.render('error');
 });
 
 // use typeorm connect to mariadb
