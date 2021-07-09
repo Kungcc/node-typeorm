@@ -1,6 +1,7 @@
 import "reflect-metadata";
 import {createConnection} from "typeorm";
 import * as express from "express";
+import {Request, Response} from "express";
 import * as cookieParser from "cookie-parser";
 import * as logger from "morgan";
 import * as path from "path";
@@ -23,23 +24,18 @@ const startRouter = express.Router().get('/', function(req, res) {
     res.json({ message: 'Hello nodejs restful API' });   
 });
 
+app.use((request: Request, response: Response, next: Function) => {
+    response.setHeader("Access-Control-Allow-Origin", "*");
+    response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    response.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
+    next();
+});
+
 //建立起第一層的router
 app.use('/', startRouter);
 for (const route of router) {
     app.use(route.getPrefix(), route.getRouter());
 }
-
-// register express routes from defined application routes
-// Routes.forEach(route => {
-//     (app as any)[route.method](route.route, (req: Request, res: Response, next: Function) => {
-//         const result = (new (route.controller as any))[route.action](req, res, next);
-//         if (result instanceof Promise) {
-//             result.then(result => result !== null && result !== undefined ? res.send(result) : undefined);
-//         } else if (result !== null && result !== undefined) {
-//             res.json(result);
-//         }
-//     });
-// });
 
 app.listen(3000);
 

@@ -9,12 +9,18 @@ export class Role {
     @Column({type: "varchar", length: 20, nullable: false })
     role_name: string;
 
-    @Column({type: "varchar", length: 30, nullable: false })
+    @Column({type: "varchar", length: 20, nullable: false })
     role_group: string;
 
-    @Column({type: "datetime", nullable: true})
+    @Column({type: "varchar", length: 10, nullable: false })
+    role_type: string;
+
+    @Column({type: "varchar", length: 100, nullable: true })
+    role_desc: string;
+
+    @CreateDateColumn()
     role_create_date: Date;
 
-    @Column({type: "datetime", nullable: true})
+    @UpdateDateColumn()
     role_modify_date: Date;
 }
