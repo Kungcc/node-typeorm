@@ -4,14 +4,14 @@ import {Entity, Column, PrimaryColumn, CreateDateColumn, UpdateDateColumn} from 
 export class Auth {
 
     @PrimaryColumn({type: "varchar", length: 20, nullable: false })
-    username: string;
+    username!: string;
 
     @Column({type: "varchar", length: 20, nullable: false })
-    password: string;
+    password!: string;
 
     @CreateDateColumn()
-    role_create_date: Date;
+    role_create_date!: Date;
 
     @UpdateDateColumn()
-    role_modify_date: Date;
+    role_modify_date!: Date;
 }
