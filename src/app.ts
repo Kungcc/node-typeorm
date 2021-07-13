@@ -8,7 +8,8 @@ import path from "path";
 import createError from "http-errors";
 import {router} from "./Router";
 import httpStatus from "http-Status";
-import dbConfig from './config/maria'
+import dbConfig from './config/maria';
+import { collectDefaultMetrics, Registry } from "prom-client";
 
 const app = express();
 
@@ -23,7 +24,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const startRouter = express.Router().get('/', function(req, res) {
-    res.json({ message: 'Hello nodejs restful API' });   
+    res.status(httpStatus.OK).json({ message: 'Hello nodejs restful API' });   
 });
 
 app.use((request: Request, response: Response, next: Function) => {
@@ -33,8 +34,17 @@ app.use((request: Request, response: Response, next: Function) => {
     next();
 });
 
-//建立起第一層的router
 app.use('/', startRouter);
+
+const register = new Registry()
+register.setDefaultLabels({
+    app: 'nodejs-typeorm'
+})
+collectDefaultMetrics({register});
+app.get("/metrics", async function(req: express.Request, res: express.Response) {
+  res.setHeader("Content-type", register.contentType);
+  res.status(httpStatus.OK).send(await register.metrics());
+});
 for (const route of router) {
     app.use(route.getPrefix(), route.getRouter());
 }
