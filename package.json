@@ -1,37 +1,50 @@
 {
-   "name": "node-typeorm",
-   "version": "0.0.1",
-   "description": "Nodejs Hellow World with TypeORM.",
-   "devDependencies": {
-      "@types/cookie-parser": "^1.4.2",
-      "@types/express": "^4.17.13",
-      "@types/http-errors": "^1.8.1",
-      "@types/jsonwebtoken": "^8.5.4",
-      "@types/morgan": "^1.9.3",
-      "@types/node": "^16.3.0",
-      "cookie-parser": "^1.4.5",
-      "cors": "^2.8.5",
-      "express-validator": "^6.12.0",
-      "http-errors": "^1.8.0",
-      "http-status": "^1.5.0",
-      "jade": "^1.11.0",
-      "jsonwebtoken": "^8.5.1",
-      "morgan": "^1.10.0",
-      "path": "^0.12.7",
-      "ts-node": "10.0.0",
-      "typescript": "^4.3.5"
-   },
-   "dependencies": {
-      "express": "^4.17.1",
-      "mysql": "^2.18.1",
-      "nodemon": "^2.0.10",
-      "reflect-metadata": "^0.1.13",
-      "typeorm": "0.2.34"
-   },
-   "scripts": {
-      "start": "ts-node src/app.ts",
-      "dev": "nodemon --config nodemon.json src/app.ts",
-      "dev:debug": "nodemon --config nodemon.json --inspect-brk src/app.ts",
-      "build": "tsc"
-   }
+  "name": "node-typeorm",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node dist/app.js",
+    "dev": "nodemon --config nodemon.json src/app.ts",
+    "dev:debug": "nodemon --config nodemon.json --inspect-brk src/app.ts",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kungcc/node-typeorm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kungcc/node-typeorm/issues"
+  },
+  "homepage": "https://github.com/Kungcc/node-typeorm#readme",
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.13",
+    "@types/http-errors": "^1.8.1",
+    "@types/jsonwebtoken": "^8.5.4",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^16.3.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express-validator": "^6.12.0",
+    "http-errors": "^1.8.0",
+    "http-status": "^1.5.0",
+    "jade": "^1.11.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.10",
+    "path": "^0.12.7",
+    "ts-node": "10.0.0",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "0.2.34"
+  }
 }

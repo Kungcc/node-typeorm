@@ -1,4 +1,4 @@
-import {Entity, Column, PrimaryColumn, CreateDateColumn, UpdateDateColumn} from "typeorm";
+import {Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn} from "typeorm";
 
 @Entity({name: "auth"})
 export class Auth {
