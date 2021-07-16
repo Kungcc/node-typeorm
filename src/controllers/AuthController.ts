@@ -1,7 +1,7 @@
 import {getRepository} from "typeorm";
 import {NextFunction, Request, Response} from "express";
 import {Auth} from "../models/auth";
-import httpStatus from "http-Status";
+import httpStatus from "http-status";
 
 export default class AuthController {
 

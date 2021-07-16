@@ -1,5 +1,6 @@
 import RoleController from "../controllers/RoleController"
 import Route from "./Route";
+import {before, after} from "../middlewares/PromMiddleware";
 
 export default class RoleRoute extends Route {
     private roleController = new RoleController();
@@ -11,9 +12,9 @@ export default class RoleRoute extends Route {
     }
 
     protected setRoutes() {
-        this.router.get('/', this.roleController.all);
-        this.router.get('/:id', this.roleController.one);
-        this.router.post('/', this.roleController.save);
-        this.router.delete('/:id', this.roleController.remove);
+        this.router.get('/', before, after, this.roleController.all);
+        this.router.get('/:id', before, after, this.roleController.one);
+        this.router.post('/', before, after, this.roleController.save);
+        this.router.delete('/:id', before, after, this.roleController.remove);
     }
 }

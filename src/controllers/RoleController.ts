@@ -1,7 +1,7 @@
 import {getRepository} from "typeorm";
 import {NextFunction, Request, Response} from "express";
 import {Role} from "../models/role";
-import httpStatus from "http-Status";
+import httpStatus from "http-status";
 
 export default class RoleController {
 

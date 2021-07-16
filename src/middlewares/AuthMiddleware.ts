@@ -1,7 +1,7 @@
 import {Request, Response, NextFunction} from "express";
 import {validationResult} from "express-validator";
 import jwt from "jsonwebtoken";
-import httpStatus from "http-Status";
+import httpStatus from "http-status";
 
 export function AuthMiddleware(req: Request, res: Response, next: NextFunction) {
   const token = req.headers.authorization;
