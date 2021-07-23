@@ -2,7 +2,7 @@
 import { Request,Response } from "express";
 import Route from "./Route";
 import jwt from "jsonwebtoken";
-import httpStatus from "http-Status";
+import httpStatus from "http-status";
 
 export default class TokenRoute extends Route {
 
