@@ -57,7 +57,7 @@ app.use(function(req, res, next) {
 
 // use typeorm connect to mariadb
 createConnection(dbConfig).then(connection => {
-    console.log(connection);
+    //console.log(connection);
     console.log("mariadb connection successed!");
 }).catch(error => console.log("mariadb connection failed! errorMsg=",error));
 

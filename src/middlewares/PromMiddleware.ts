@@ -32,7 +32,6 @@ export function after(req: Request, res: Response, next: NextFunction) {
   const timer = httpContext.get('timer');
   if (timer) {
     const route = req.baseUrl;
-    console.log(req);
     timer({ route, code: res.status, method: req.method });
   }
   next();
