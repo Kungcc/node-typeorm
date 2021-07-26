@@ -17,6 +17,11 @@ FROM node:16.5.0-alpine3.14
 
 WORKDIR /app
 
+RUN TZ=Asia/Taipei && \
+    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+    echo $TZ > /etc/timezone && \
+    apk add -U tzdata
+
 COPY --from=builder /app/ .
 EXPOSE 3000
 
