@@ -34,6 +34,7 @@ const MemoryStore = createMemoryStore(session);
 
 app.use(
   auth({
+    authRequired: true,
     issuerBaseURL: 'http://10.36.1.125:8080/auth/realms/master',
     baseURL: 'http://localhost:3000',
     clientID: 'node-test',
